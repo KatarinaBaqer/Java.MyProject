@@ -10,8 +10,6 @@ class TextAnalyserTest {
     @BeforeEach
     public void setup(){
         analyser = new TextAnalyser();
-
-
     }
     // Testfall som Testar räkningen av rader och tecken
     @Test
@@ -19,7 +17,7 @@ class TextAnalyserTest {
 
         // 1 rad, 11 tecken
         analyser.analyse("Hej världen");
-        // 1 rad, 10 tecken
+        // 2 rad, 11 tecken
         analyser.analyse("Java är kul");
         assertEquals(2, analyser.getRows(), "Antalet rader borde vara 2");
         assertEquals(22, analyser.getCharacters(), "Antalet tecken borde vara 22");
@@ -43,9 +41,9 @@ class TextAnalyserTest {
     @Test
     public void TestEmptyInput() {
         analyser.analyse("");
-       assertEquals(1, analyser.getRows(), "Antalet rader borde vara 0 för tom inmatning");
+       assertEquals(0, analyser.getRows(), "Antalet rader borde vara 0 för tom inmatning");
         assertEquals(0, analyser.getCharacters(), "Antalet tecken borde vara 0 för tom inmatning");
-        assertEquals(1, analyser.getWords(), "Antalet ord borde vara 0 för tom inmatning");
+        assertEquals(0, analyser.getWords(), "Antalet ord borde vara 0 för tom inmatning");
         assertEquals("", analyser.getLongestWord(), "Det längsta ordet borde vara tomt för tom inmatning");
     }
 }

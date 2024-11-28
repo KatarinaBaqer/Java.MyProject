@@ -14,6 +14,7 @@ public class Main {
 
             // Kontrollera om användaren skrev 'stop'
             if (input.equalsIgnoreCase("stop")) {
+
                 break;
             }
 
@@ -25,7 +26,7 @@ public class Main {
         }
 
         // Skriv ut resultatet
-        System.out.println("\nResultat:");
+        System.out.println("Resultat:");
         System.out.println("Antalet rader är: " + analyser.getRows());
         System.out.println("Antalet tecken är: " + analyser.getCharacters());
         System.out.println("Antalet ord är: " + analyser.getWords());

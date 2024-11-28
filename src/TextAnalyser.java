@@ -10,21 +10,27 @@ public  class TextAnalyser {
 
             // Metod för att analysera en rad och uppdatera räkningen av rader, tecken och ord
             public void analyse(String text) {
-                // Öka antalet rader med 1
-                rows++;
-                // Lägg till antalet tecken i texten
-                characters += text.length();
+                if (!text.isEmpty()){
 
-                // Dela upp texten i ord och räkna dem
-                String[] wordArray = text.split("\\s+"); // Dela upp texten vid mellanslag
-                words += wordArray.length; // Uppdatera antalet ord
+                    // Öka antalet rader med 1
+                    rows++;
 
-                // Hitta det längsta ordet i texten
-                for (String word : wordArray) {
-                    if (word.length() > longestWord.length()) {
-                        longestWord = word;
+
+                    // Lägg till antalet tecken i texten
+                    characters += text.replaceAll("\\s", "").length();
+
+                    // Dela upp texten i ord och räkna dem
+                    String[] wordArray = text.trim().split("\\s+"); // Dela upp texten vid mellanslag
+                    words += wordArray.length; // Uppdatera antalet ord
+
+                    // Hitta det längsta ordet i texten
+                    for (String word : wordArray) {
+                        if (word.length() > longestWord.length()) {
+                            longestWord = word;
+                        }
                     }
                 }
+
             }
 
             // Metod för att hämta antalet rader
